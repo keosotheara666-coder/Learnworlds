@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AMii | Free Online Courses With Certificates & Diplomas</title>
+  <style>
+    /* ========================================================
+       RESET & GLOBAL VARIABLES
+    ======================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --primary-green: #378652;
+      --primary-green-hover: #2d6e42;
+      --light-green-bg: #80a950;
+      --navy-dark: #0f2239;
+      --navy-footer: #0c1a2c;
+      --text-dark: #1f2937;
+      --text-muted: #5c6874;
+      --border-gray: #e2e8f0;
+      --card-bg: #ffffff;
+      --body-bg: #f8fafc;
+      --badge-purple: #f3e8ff;
+      --badge-purple-text: #6b21a8;
+      --badge-teal: #e0f2fe;
+      --badge-teal-text: #0369a1;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+      --shadow-md: 0 4px 14px rgba(0,0,0,0.08);
+      --shadow-lg: 0 10px 25px rgba(0,0,0,0.12);
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-pill: 9999px;
+      --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background-color: var(--body-bg);
+      color: var(--text-dark);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      outline: none;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ========================================================
+       1. TOP PROMO BANNER
+    ======================================================== */
+    .top-promo-bar {
+      background: #eef7f2;
+      border-bottom: 1px solid #d9ede2;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13.5px;
+      color: #274737;
+    }
+    .promo-content {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 auto;
+    }
+    .promo-avatars {
+      display: flex;
+      align-items: center;
+    }
+    .promo-avatars span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #c8e6d3;
+      font-size: 14px;
+      margin-left: -6px;
+      border: 2px solid #fff;
+    }
+    .promo-btn-app {
+      background: #ffffff;
+      border: 1px solid #cce5d6;
+      padding: 4px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      font-weight: 600;
+      color: #1f5734;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .promo-close {
+      background: transparent;
+      font-size: 16px;
+      color: #889f92;
+    }
+
+    /* ========================================================
+       2. MAIN NAVBAR
+    ======================================================== */
+    .main-nav {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-gray);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      gap: 16px;
+    }
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-shrink: 0;
+    }
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 800;
+      font-size: 24px;
+      color: #1f2937;
+      letter-spacing: -0.5px;
+    }
+    .brand-icon {
+      width: 32px;
+      height: 32px;
+      background: conic-gradient(#e11d48, #f59e0b, #10b981, #3b82f6, #8b5cf6, #e11d48);
+      clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+      display: inline-block;
+    }
+    .brand-logo span.sub {
+      display: block;
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #64748b;
+      margin-top: -4px;
+      font-weight: 700;
+    }
+
+    .explore-btn {
+      background: #f1f7f3;
+      border: 1px solid #d3e7da;
+      color: #1e293b;
+      padding: 9px 16px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .explore-btn:hover {
+      background: #e5f1e9;
+    }
+
+    .nav-search {
+      flex: 1;
+      max-width: 440px;
+      position: relative;
+    }
+    .nav-search input {
+      width: 100%;
+      height: 42px;
+      padding: 8px 16px 8px 38px;
+      border-radius: var(--radius-sm);
+      border: 1px solid #cbd5e1;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .nav-search input:focus {
+      border-color: var(--primary-green);
+    }
+    .nav-search .search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #94a3b8;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 14px;
+      font-weight: 500;
+      flex-shrink: 0;
+    }
+    .nav-right a:hover {
+      color: var(--primary-green);
+    }
+    .nav-btn-signup {
+      background: var(--primary-green);
+      color: #ffffff;
+      padding: 8px 20px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+    .nav-btn-signup:hover {
+      background: var(--primary-green-hover);
+    }
+    .lang-badge {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      border: 1px solid var(--border-gray);
+      padding: 5px 8px;
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    /* ========================================================
+       3. TOP SUB-NAV PILLS
+    ======================================================== */
+    .subnav-pills-bar {
+      display: flex;
+      justify-content: center;
+      padding: 18px 0 6px;
+      background: #ffffff;
+    }
+    .pills-group {
+      display: inline-flex;
+      background: #f1f5f9;
+      padding: 4px;
+      border-radius: var(--radius-pill);
+      gap: 4px;
+    }
+    .pill-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: var(--radius-pill);
+      font-size: 14px;
+      font-weight: 600;
+      color: #475569;
+      background: transparent;
+      transition: all 0.2s;
+    }
+    .pill-btn.active {
+      background: var(--primary-green);
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(55,134,82,0.3);
+    }
+    .pill-btn:not(.active):hover {
+      background: #e2e8f0;
+      color: #1e293b;
+    }
+
+    /* ========================================================
+       4. HERO SECTION
+    ======================================================== */
+    .hero-section {
+      background: #ffffff;
+      text-align: center;
+      padding: 40px 20px 48px;
+    }
+    .hero-title {
+      font-size: 40px;
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      color: #1e293b;
+      margin-bottom: 28px;
+    }
+    .hero-search-wrapper {
+      max-width: 680px;
+      margin: 0 auto 36px;
+      position: relative;
+    }
+    .hero-search-wrapper input {
+      width: 100%;
+      height: 56px;
+      border-radius: var(--radius-sm);
+      border: 1px solid #cbd5e1;
+      padding: 12px 24px 12px 52px;
+      font-size: 16px;
+      color: #1e293b;
+      box-shadow: var(--shadow-sm);
+      outline: none;
+      transition: all 0.2s;
+    }
+    .hero-search-wrapper input:focus {
+      border-color: var(--primary-green);
+      box-shadow: 0 0 0 3px rgba(55, 134, 82, 0.15);
+    }
+    .hero-search-wrapper .hero-search-icon {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #64748b;
+      font-size: 20px;
+    }
+
+    .partner-subtitle {
+      font-size: 14px;
+      font-weight: 600;
+      color: #64748b;
+      margin-bottom: 22px;
+      letter-spacing: 0.3px;
+    }
+    .partner-logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 36px;
+      opacity: 0.8;
+      filter: grayscale(10%);
+    }
+    .partner-logos span {
+      font-size: 20px;
+      font-weight: 700;
+      color: #475569;
+    }
+    .logo-stanford { font-family: serif; color: #8c1515 !important; font-size: 24px !important; }
+    .logo-google { font-weight: 800 !important; color: #4285f4 !important; }
+    .logo-ibm { letter-spacing: 2px; font-weight: 900 !important; color: #0f62fe !important; }
+    .logo-cambridge { font-family: serif; font-size: 18px !important; }
+
+    /* ========================================================
+       5. METRICS / STATS BAR (NAVY BLUE)
+    ======================================================== */
+    .metrics-bar {
+      background: var(--navy-dark);
+      color: #ffffff;
+      padding: 18px 0;
+    }
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      align-items: center;
+      text-align: center;
+      gap: 16px;
+    }
+    .metric-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      border-right: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .metric-item:last-child {
+      border-right: none;
+    }
+    .trust-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #00b67a;
+      color: #fff;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    /* ========================================================
+       6. CATEGORIES GRID (GREEN SECTION)
+    ======================================================== */
+    .categories-section {
+      background: var(--light-green-bg);
+      padding: 56px 0 68px;
+      position: relative;
+      background-image: radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .categories-title {
+      color: #ffffff;
+      font-size: 32px;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 36px;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+    .cat-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 28px 18px 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 180px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+    }
+    .cat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    .cat-icon-wrap {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+    .cat-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 6px;
+      line-height: 1.25;
+    }
+    .cat-count {
+      font-size: 13px;
+      color: #64748b;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* ========================================================
+       7. COURSE CAROUSEL / SECTION (DIPLOMAS & CERTIFICATES)
+    ======================================================== */
+    .course-showcase-section {
+      padding: 56px 0;
+    }
+    .section-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+    .section-headline {
+      font-size: 28px;
+      font-weight: 800;
+      color: #1e293b;
+    }
+    .explore-all-btn {
+      border: 1px solid var(--primary-green);
+      background: #ffffff;
+      color: var(--primary-green);
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+    .explore-all-btn:hover {
+      background: var(--primary-green);
+      color: #ffffff;
+    }
+
+    .course-cards-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      position: relative;
+    }
+    .course-card {
+      background: #ffffff;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-gray);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .course-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .card-top-banner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 12px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .level-beginner { background: #f3e8ff; color: #7e22ce; }
+    .level-advanced { background: #e0f2fe; color: #0369a1; }
+    .level-intermediate { background: #dcfce7; color: #15803d; }
+    .type-pill {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 10px;
+      color: #475569;
+    }
+
+    .card-thumbnail {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      display: block;
+      background: #e2e8f0;
+    }
+    .card-lang-strip {
+      background: #f8fafc;
+      border-bottom: 1px solid #f1f5f9;
+      padding: 4px 12px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #64748b;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .card-body {
+      padding: 14px 14px 16px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .course-card-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1e293b;
+      line-height: 1.35;
+      margin-bottom: 12px;
+      min-height: 42px;
+    }
+
+    .card-social-stat {
+      font-size: 12px;
+      color: #64748b;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+    .card-meta-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #64748b;
+      margin-bottom: 14px;
+      padding-top: 4px;
+      border-top: 1px dashed #e2e8f0;
+    }
+
+    .card-btn-group {
+      margin-top: auto;
+      display: flex;
+      gap: 8px;
+    }
+    .btn-more-info {
+      flex: 1;
+      background: #f1f5f9;
+      color: #334155;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 0;
+      border-radius: var(--radius-sm);
+      text-align: center;
+    }
+    .btn-more-info:hover {
+      background: #e2e8f0;
+    }
+    .btn-start-learn {
+      flex: 1.3;
+      background: var(--primary-green);
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 0;
+      border-radius: var(--radius-sm);
+      text-align: center;
+    }
+    .btn-start-learn:hover {
+      background: var(--primary-green-hover);
+    }
+
+    /* ========================================================
+       8. POPULAR SKILLS TAG CLOUD
+    ======================================================== */
+    .skills-section {
+      background: #ffffff;
+      padding: 48px 0;
+      border-top: 1px solid #edf2f7;
+      border-bottom: 1px solid #edf2f7;
+    }
+    .skills-wrapper {
+      display: flex;
+      align-items: flex-start;
+      gap: 48px;
+    }
+    .skills-left {
+      flex: 1;
+    }
+    .skills-headline {
+      font-size: 32px;
+      font-weight: 800;
+      color: #1e293b;
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+    .skills-right {
+      flex: 1.5;
+    }
+    .skills-label {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #0369a1;
+      margin-bottom: 16px;
+    }
+    .tags-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .skill-pill {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      color: #334155;
+      font-size: 13.5px;
+      font-weight: 500;
+      padding: 7px 16px;
+      border-radius: var(--radius-pill);
+      transition: all 0.2s;
+    }
+    .skill-pill:hover {
+      border-color: var(--primary-green);
+      color: var(--primary-green);
+      background: #f0fdf4;
+    }
+    .skill-pill.active {
+      border-color: #0284c7;
+      color: #0284c7;
+      background: #f0f9ff;
+      font-weight: 600;
+    }
+
+    /* ========================================================
+       9. OFFLINE LEARNING / APP DOWNLOAD
+    ======================================================== */
+    .app-download-section {
+      background: #eef5fa;
+      padding: 60px 0;
+    }
+    .app-download-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+    .app-info {
+      max-width: 520px;
+    }
+    .app-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #dbeafe;
+      color: #1d4ed8;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .app-title {
+      font-size: 36px;
+      font-weight: 800;
+      color: #1e293b;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .app-desc {
+      font-size: 15px;
+      color: #475569;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    .app-stat {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #ffffff;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #1e293b;
+      box-shadow: var(--shadow-sm);
+    }
+    .app-devices {
+      display: flex;
+      gap: 20px;
+    }
+    .phone-mockup {
+      background: #ffffff;
+      border-radius: 20px;
+      border: 4px solid #cbd5e1;
+      padding: 24px 16px;
+      text-align: center;
+      box-shadow: var(--shadow-md);
+      width: 170px;
+    }
+    .qr-placeholder {
+      width: 110px;
+      height: 110px;
+      margin: 0 auto 16px;
+      background: #f1f5f9;
+      border: 1px dashed #94a3b8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: #64748b;
+    }
+    .store-btn {
+      background: #000000;
+      color: #ffffff;
+      font-size: 10px;
+      padding: 6px 10px;
+      border-radius: var(--radius-sm);
+      display: block;
+      font-weight: 600;
+    }
+
+    /* ========================================================
+       10. TESTIMONIALS SECTION
+    ======================================================== */
+    .testimonials-section {
+      padding: 68px 0;
+      background: #ffffff;
+      text-align: center;
+    }
+    .testimonials-title {
+      font-size: 32px;
+      font-weight: 800;
+      color: #1e293b;
+      margin-bottom: 40px;
+    }
+    .testimonials-title span {
+      color: #2563eb;
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 36px;
+    }
+    .testi-card {
+      background: #0d1e38;
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      color: #ffffff;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 220px;
+      box-shadow: var(--shadow-md);
+      position: relative;
+    }
+    .testi-header {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      opacity: 0.7;
+      margin-bottom: 12px;
+    }
+    .testi-quote {
+      font-size: 19px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 24px;
+    }
+    .testi-quote span.accent {
+      color: #facc15;
+    }
+    .testi-user-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .user-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #334155;
+      object-fit: cover;
+      border: 2px solid #ffffff;
+    }
+    .user-name {
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .user-role {
+      font-size: 12px;
+      opacity: 0.7;
+    }
+
+    /* ========================================================
+       11. MEGA FOOTER
+    ======================================================== */
+    .mega-footer {
+      background: var(--navy-footer);
+      color: #ffffff;
+      padding: 60px 0 32px;
+      font-size: 13.5px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 32px;
+      margin-bottom: 48px;
+    }
+    .footer-col-title {
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #94a3b8;
+      margin-bottom: 18px;
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-links a {
+      color: #cbd5e1;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #64748b;
+      font-size: 12px;
+    }
+
+    /* Floating Chat Icon */
+    .floating-chat-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 52px;
+      height: 52px;
+      background: var(--primary-green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 24px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+      cursor: pointer;
+      z-index: 999;
+      transition: transform 0.2s;
+    }
+    .floating-chat-btn:hover {
+      transform: scale(1.05);
+    }
+
+    /* ========================================================
+       RESPONSIVE BREAKPOINTS
+    ======================================================== */
+    @media (max-width: 1024px) {
+      .categories-grid { grid-template-columns: repeat(3, 1fr); }
+      .course-cards-row { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: repeat(3, 1fr); }
+      .skills-wrapper { flex-direction: column; gap: 20px; }
+      .app-download-inner { flex-direction: column; text-align: center; }
+      .app-stat { margin: 0 auto; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-search { display: none; }
+      .metrics-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .categories-grid { grid-template-columns: repeat(2, 1fr); }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .hero-title { font-size: 28px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .course-cards-row { grid-template-columns: 1fr; }
+      .categories-grid { grid-template-columns: 1fr; }
+      .metrics-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. TOP PROMO BANNER -->
+  <aside class="top-promo-bar">
+    <div class="promo-content">
+      <div class="promo-avatars">
+        <span>👩‍💻</span>
+        <span>👨‍🎓</span>
+      </div>
+      <span>Join millions using the AMii App – faster, easier, and made for learning on the move... 📲</span>
+      <button class="promo-btn-app">📲 Get App</button>
+    </div>
+    <button class="promo-close" onclick="this.closest('.top-promo-bar').style.display='none'">✕</button>
+  </aside>
+
+  <!-- 2. MAIN NAVBAR -->
+  <header class="main-nav">
+    <div class="container nav-inner">
+      <div class="nav-left">
+        <a href="#" class="brand-logo">
+          <div class="brand-icon"></div>
+          <div>
+            Alison
+            <span class="sub">Empower Yourself</span>
+          </div>
+        </a>
+        <button class="explore-btn">
+          Explore ▾
+        </button>
+      </div>
+
+      <div class="nav-search">
+        <span class="search-icon">🔍</span>
+        <input type="text" placeholder="What do you want to learn?">
+      </div>
+
+      <div class="nav-right">
+        <a href="#">For Business</a>
+        <a href="#">Go Premium</a>
+        <span title="Currency" style="cursor: pointer;">💲</span>
+        <a href="#">Log In</a>
+        <a href="#" class="nav-btn-signup">Sign Up</a>
+        <div class="lang-badge">
+          🇬🇧 ▾
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 3. TOP SUB-NAV PILLS -->
+  <div class="subnav-pills-bar">
+    <div class="pills-group">
+      <button class="pill-btn active">📖 Learn & Get Certificates</button>
+      <button class="pill-btn">💼 Build Your Career</button>
+      <button class="pill-btn">💰 Earn On AMii</button>
+    </div>
+  </div>
+
+  <!-- 4. HERO SECTION -->
+  <section class="hero-section">
+    <div class="container">
+      <h1 class="hero-title">Free Online Courses With Certificates & Diplomas</h1>
+      
+      <div class="hero-search-wrapper">
+        <span class="hero-search-icon">🔍</span>
+        <input type="text" placeholder="What do you want to learn today?">
+      </div>
+
+      <div class="partner-subtitle">Learn From World Leading Experts</div>
+      <div class="partner-logos">
+        <span class="logo-stanford">Stanford</span>
+        <span>Microsoft</span>
+        <span class="logo-ibm">IBM</span>
+        <span>Alzheimer's Disease Int.</span>
+        <span class="logo-google">Google</span>
+        <span class="logo-cambridge">University of Cambridge</span>
+        <span>MIT</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. STATS METRICS BAR -->
+  <div class="metrics-bar">
+    <div class="container metrics-grid">
+      <div class="metric-item">
+        <span>Rated <u>Excellent</u></span>
+        <span class="trust-badge">★ Trustpilot</span>
+      </div>
+      <div class="metric-item">
+        <span>👥 50+ Million Learners</span>
+      </div>
+      <div class="metric-item">
+        <span>🎓 15+ Million Graduates</span>
+      </div>
+      <div class="metric-item">
+        <span>🌍 193 Countries</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. CATEGORIES GRID -->
+  <section class="categories-section">
+    <div class="container">
+      <h2 class="categories-title">Explore 6,000+ Free Online Courses</h2>
+
+      <div class="categories-grid">
+        <!-- 1 -->
+        <div class="cat-card">
+          <div class="cat-icon-wrap">💻</div>
+          <div class="cat-name">Information Technology (IT)</div>
+          <div class="cat-count">1,324 Courses →</div>
+        </div>
+        <!-- 2 -->
+        <div class="cat-card">
+          <div class="cat-icon-wrap">💚</div>
+          <div class="cat-name">Health</div>
+          <div class="cat-count">1,174 Courses →</div>
+        </div>
+        <!-- 3 -->
+        <div class="cat-card">
+          <div class="cat-icon-wrap">🌐</div>
+          <div class="cat-name">Language</div>
+          <div class="cat-count">319 Courses →</div>
+        </div>
+        <!-- 4 -->
+        <div class="cat-card">
+          <div class="cat-icon-wrap">📈</div>
+          <div class="cat-name">Business</div>
+          <div class="cat-count">1,826 Courses →</div>
+        </div>
+        <!-- 5 -->
+        <div class="cat-card">
+          <div class="cat-icon-wrap">👥</div>
+          <div class="cat-name">Management</div>
+          <div class="cat-count">1,141 Courses →</div>
+        </div>
+        <!-- 6 -->
+        <div class="cat-card">
+          <div class="cat-icon-wrap">📖</div>
+          <div class="cat-name">English</div>
+          <div class="cat-count">55 Courses →</div>
+        </div>
+        <!-- 7 -->
+        <div class="cat-card">
+          <div class="cat-icon-wrap">🎯</div>
+          <div class="cat-name">Personal Development</div>
+          <div class="cat-count">1,381 Courses →</div>
+        </div>
+        <!-- 8 -->
+        <div class="cat-card">
+          <div class="cat-icon-wrap">📢</div>
+          <div class="cat-name">Sales & Marketing</div>
+          <div class="cat-count">456 Courses →</div>
+        </div>
+        <!-- 9 -->
+        <div class="cat-card">
+          <div class="cat-icon-wrap">👷</div>
+          <div class="cat-name">Engineering & Construction</div>
+          <div class="cat-count">871 Courses →</div>
+        </div>
+        <!-- 10 -->
+        <div class="cat-card">
+          <div class="cat-icon-wrap">📚</div>
+          <div class="cat-name">Teaching & Academics</div>
+          <div class="cat-count">1,702 Courses →</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. TOP DIPLOMAS SECTION -->
+  <section class="course-showcase-section">
+    <div class="container">
+      <div class="section-header-row">
+        <h2 class="section-headline">Top Diplomas</h2>
+        <button class="explore-all-btn">Explore more Diploma courses</button>
+      </div>
+
+      <div class="course-cards-row">
+        <!-- Diploma Card 1 -->
+        <div class="course-card">
+          <div class="card-top-banner level-advanced">
+            <span>📊 ADVANCED LEVEL</span>
+            <span class="type-pill">🎓 DIPLOMA</span>
+          </div>
+          <img class="card-thumbnail" src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&auto=format&fit=crop&q=60" alt="Healthcare">
+          <div class="card-lang-strip">ALSO AVAILABLE IN 🇪🇸</div>
+          <div class="card-body">
+            <h3 class="course-card-title">Diploma in Health and Social Care</h3>
+            <div class="card-social-stat">👍 2,849 liked this course</div>
+            <div class="card-meta-row">
+              <span>⏱ 10-15 hrs</span>
+              <span>👥 101,760 learners</span>
+            </div>
+            <div class="card-btn-group">
+              <a href="#" class="btn-more-info">More Info</a>
+              <a href="#" class="btn-start-learn">Start Learning</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Diploma Card 2 -->
+        <div class="course-card">
+          <div class="card-top-banner level-beginner">
+            <span>📊 BEGINNER LEVEL</span>
+            <span class="type-pill">🎓 DIPLOMA</span>
+          </div>
+          <img class="card-thumbnail" src="https://images.unsplash.com/photo-1527689368864-3a821dbccc34?w=400&auto=format&fit=crop&q=60" alt="Mental Health">
+          <div class="card-lang-strip">ALSO AVAILABLE IN 🇪🇸</div>
+          <div class="card-body">
+            <h3 class="course-card-title">Diploma in Mental Health</h3>
+            <div class="card-social-stat">👍 3,789 liked this course</div>
+            <div class="card-meta-row">
+              <span>⏱ 10-15 hrs</span>
+              <span>👥 289,790 learners</span>
+            </div>
+            <div class="card-btn-group">
+              <a href="#" class="btn-more-info">More Info</a>
+              <a href="#" class="btn-start-learn">Start Learning</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Diploma Card 3 -->
+        <div class="course-card">
+          <div class="card-top-banner level-beginner">
+            <span>📊 BEGINNER LEVEL</span>
+            <span class="type-pill">🎓 DIPLOMA</span>
+          </div>
+          <img class="card-thumbnail" src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=400&auto=format&fit=crop&q=60" alt="Workplace Safety">
+          <div class="card-lang-strip">ALSO AVAILABLE IN 🇪🇸</div>
+          <div class="card-body">
+            <h3 class="course-card-title">Diploma in Workplace Safety and Health</h3>
+            <div class="card-social-stat">👍 3,918 liked this course</div>
+            <div class="card-meta-row">
+              <span>⏱ 6-10 hrs</span>
+              <span>👥 207,362 learners</span>
+            </div>
+            <div class="card-btn-group">
+              <a href="#" class="btn-more-info">More Info</a>
+              <a href="#" class="btn-start-learn">Start Learning</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Diploma Card 4 -->
+        <div class="course-card">
+          <div class="card-top-banner level-beginner">
+            <span>📊 BEGINNER LEVEL</span>
+            <span class="type-pill">🎓 DIPLOMA</span>
+          </div>
+          <img class="card-thumbnail" src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?w=400&auto=format&fit=crop&q=60" alt="Nursing">
+          <div class="card-lang-strip">ALSO AVAILABLE IN 🇪🇸</div>
+          <div class="card-body">
+            <h3 class="course-card-title">Diploma in Nursing and Patient Care</h3>
+            <div class="card-social-stat">👍 4,420 liked this course</div>
+            <div class="card-meta-row">
+              <span>⏱ 10-15 hrs</span>
+              <span>👥 360,252 learners</span>
+            </div>
+            <div class="card-btn-group">
+              <a href="#" class="btn-more-info">More Info</a>
+              <a href="#" class="btn-start-learn">Start Learning</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. POPULAR SKILLS SECTION -->
+  <section class="skills-section">
+    <div class="container skills-wrapper">
+      <div class="skills-left">
+        <h2 class="skills-headline">Advance Your Career.<br>Learn In-demand Skills.</h2>
+      </div>
+      <div class="skills-right">
+        <div class="skills-label">Popular Skills</div>
+        <div class="tags-container">
+          <button class="skill-pill">Information Systems</button>
+          <button class="skill-pill active">Health Care</button>
+          <button class="skill-pill">Business Management</button>
+          <button class="skill-pill">Contract Law</button>
+          <button class="skill-pill">Accounting</button>
+          <button class="skill-pill">Quality Control</button>
+          <button class="skill-pill">Digital Marketing</button>
+          <button class="skill-pill">Python Programming</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. TOP CERTIFICATES SECTION -->
+  <section class="course-showcase-section">
+    <div class="container">
+      <div class="section-header-row">
+        <h2 class="section-headline">Top Certificates</h2>
+        <button class="explore-all-btn">Explore more Certificate courses</button>
+      </div>
+
+      <div class="course-cards-row">
+        <!-- Certificate Card 1 -->
+        <div class="course-card">
+          <div class="card-top-banner level-intermediate">
+            <span>📊 INTERMEDIATE LEVEL</span>
+            <span class="type-pill">📜 CERTIFICATE</span>
+          </div>
+          <img class="card-thumbnail" src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&auto=format&fit=crop&q=60" alt="Manual Handling">
+          <div class="card-lang-strip">ALSO AVAILABLE IN 🇪🇸</div>
+          <div class="card-body">
+            <h3 class="course-card-title">Essential Safe Manual Handling Skills</h3>
+            <div class="card-social-stat">👍 1,498 liked this course</div>
+            <div class="card-meta-row">
+              <span>⏱ 2-3 hrs</span>
+              <span>👥 43,676 learners</span>
+            </div>
+            <div class="card-btn-group">
+              <a href="#" class="btn-more-info">More Info</a>
+              <a href="#" class="btn-start-learn">Start Learning</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certificate Card 2 -->
+        <div class="course-card">
+          <div class="card-top-banner level-beginner">
+            <span>📊 BEGINNER LEVEL</span>
+            <span class="type-pill">📜 CERTIFICATE</span>
+          </div>
+          <img class="card-thumbnail" src="https://images.unsplash.com/photo-1544717305-2782549b5136?w=400&auto=format&fit=crop&q=60" alt="Domestic Abuse">
+          <div class="card-lang-strip">ALSO AVAILABLE IN 🇪🇸</div>
+          <div class="card-body">
+            <h3 class="course-card-title">Domestic Violence and Abuse Awareness</h3>
+            <div class="card-social-stat">👍 1,555 liked this course</div>
+            <div class="card-meta-row">
+              <span>⏱ 4-5 hrs</span>
+              <span>👥 22,442 learners</span>
+            </div>
+            <div class="card-btn-group">
+              <a href="#" class="btn-more-info">More Info</a>
+              <a href="#" class="btn-start-learn">Start Learning</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certificate Card 3 -->
+        <div class="course-card">
+          <div class="card-top-banner level-intermediate">
+            <span>📊 INTERMEDIATE LEVEL</span>
+            <span class="type-pill">📜 CERTIFICATE</span>
+          </div>
+          <img class="card-thumbnail" src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=400&auto=format&fit=crop&q=60" alt="Medication Management">
+          <div class="card-lang-strip">ALSO AVAILABLE IN 🇪🇸</div>
+          <div class="card-body">
+            <h3 class="course-card-title">Medication Management and Administration</h3>
+            <div class="card-social-stat">👍 4,995 liked this course</div>
+            <div class="card-meta-row">
+              <span>⏱ 2-3 hrs</span>
+              <span>👥 106,127 learners</span>
+            </div>
+            <div class="card-btn-group">
+              <a href="#" class="btn-more-info">More Info</a>
+              <a href="#" class="btn-start-learn">Start Learning</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certificate Card 4 -->
+        <div class="course-card">
+          <div class="card-top-banner level-intermediate">
+            <span>📊 INTERMEDIATE LEVEL</span>
+            <span class="type-pill">📜 CERTIFICATE</span>
+          </div>
+          <img class="card-thumbnail" src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400&auto=format&fit=crop&q=60" alt="Food Safety">
+          <div class="card-lang-strip">ALSO AVAILABLE IN 🇪🇸</div>
+          <div class="card-body">
+            <h3 class="course-card-title">HACCP Essentials and Catering Food Safety</h3>
+            <div class="card-social-stat">👍 1,998 liked this course</div>
+            <div class="card-meta-row">
+              <span>⏱ 4-5 hrs</span>
+              <span>👥 33,298 learners</span>
+            </div>
+            <div class="card-btn-group">
+              <a href="#" class="btn-more-info">More Info</a>
+              <a href="#" class="btn-start-learn">Start Learning</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. TESTIMONIALS SECTION -->
+  <section class="testimonials-section">
+    <div class="container">
+      <h2 class="testimonials-title">Over <span>50 million learners</span> have used AMii to empower themselves</h2>
+
+      <div class="testimonials-grid">
+        <!-- Testimonial 1 -->
+        <div class="testi-card">
+          <div>
+            <div class="testi-header">AMii Testimonial</div>
+            <div class="testi-quote">"With AMii, you want to take a new course <span class="accent">everytime</span>."</div>
+          </div>
+          <div class="testi-user-row">
+            <img class="user-avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=60" alt="User">
+            <div>
+              <div class="user-name">Omobolanle Akinlabi 🇳🇬</div>
+              <div class="user-role">Legal Practitioner</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="testi-card">
+          <div>
+            <div class="testi-header">AMii Testimonial</div>
+            <div class="testi-quote">"AMii's helped <span class="accent">me</span> find my purpose."</div>
+          </div>
+          <div class="testi-user-row">
+            <img class="user-avatar" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&auto=format&fit=crop&q=60" alt="User">
+            <div>
+              <div class="user-name">Sophia Gomez 🇺🇸</div>
+              <div class="user-role">Chemical Engineer</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="testi-card">
+          <div>
+            <div class="testi-header">AMii Testimonial</div>
+            <div class="testi-quote">"I am <span class="accent">employed</span> because of AMii."</div>
+          </div>
+          <div class="testi-user-row">
+            <img class="user-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=60" alt="User">
+            <div>
+              <div class="user-name">Adams Jepherson Ledix 🇲🇽</div>
+              <div class="user-role">Civil Engineer</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="explore-all-btn" style="padding: 10px 24px; font-weight: 700;">View All Testimonials</button>
+    </div>
+  </section>
+
+  <!-- 11. OFFLINE APP CALLOUT -->
+  <section class="app-download-section">
+    <div class="container app-download-inner">
+      <div class="app-info">
+        <div class="app-badge-pill">☁ Offline Learning</div>
+        <h2 class="app-title">Learn without Internet - Download the AMii App</h2>
+        <p class="app-desc">
+          With the AMii App, your learning never has to stop. Access thousands of courses without internet and learn on the go, anytime, anywhere – <a href="#" style="color:#0284c7; font-weight:600;">Learn More</a>.
+        </p>
+        <div class="app-stat">
+          <span style="color: #22c55e;">●</span> 12 Million+ App Downloads
+        </div>
+      </div>
+
+      <div class="app-devices">
+        <div class="phone-mockup">
+          <div class="qr-placeholder">QR CODE</div>
+          <button class="store-btn">GET IT ON<br>Google Play</button>
+        </div>
+        <div class="phone-mockup">
+          <div class="qr-placeholder">QR CODE</div>
+          <button class="store-btn">DOWNLOAD ON THE<br>App Store</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12. MEGA FOOTER -->
+  <footer class="mega-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1 -->
+        <div>
+          <div class="footer-col-title">Certified Courses</div>
+          <ul class="footer-links">
+            <li><a href="#">Business</a></li>
+            <li><a href="#">Engineering & Construction</a></li>
+            <li><a href="#">English</a></li>
+            <li><a href="#">Health</a></li>
+            <li><a href="#">Information Technology (IT)</a></li>
+            <li><a href="#">Language</a></li>
+            <li><a href="#">Management</a></li>
+            <li><a href="#">Personal Development</a></li>
+            <li><a href="#">Sales & Marketing</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 2 -->
+        <div>
+          <div class="footer-col-title">About AMii</div>
+          <ul class="footer-links">
+            <li><a href="#">Our Story</a></li>
+            <li><a href="#">Board of Directors</a></li>
+            <li><a href="#">Our Team & Culture</a></li>
+            <li><a href="#">Our Unique HQ</a></li>
+            <li><a href="#">Open Positions</a></li>
+            <li><a href="#">Our Course Creators</a></li>
+            <li><a href="#">Learning on AMii</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Press Room</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3 -->
+        <div>
+          <div class="footer-col-title">Quality Learning</div>
+          <ul class="footer-links">
+            <li><a href="#">Accreditation</a></li>
+            <li><a href="#">All Certificates</a></li>
+            <li><a href="#">All Diplomas</a></li>
+            <li><a href="#">All Free Courses</a></li>
+            <li><a href="#">AMii Testimonials</a></li>
+            <li><a href="#">Graduate Profiles</a></li>
+            <li><a href="#">Hubs</a></li>
+            <li><a href="#">Premium Learning</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4 -->
+        <div>
+          <div class="footer-col-title">Career Resources</div>
+          <ul class="footer-links">
+            <li><a href="#">Build Your Resumé</a></li>
+            <li><a href="#">AMii Career Guide</a></li>
+            <li><a href="#">Career Ready Plan</a></li>
+            <li><a href="#">Psychometric Tests</a></li>
+            <li><a href="#">Aptitude Test</a></li>
+            <li><a href="#">Well-being Test</a></li>
+            <li><a href="#">Workplace Personality Test</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 5 -->
+        <div>
+          <div class="footer-col-title">Discover More</div>
+          <ul class="footer-links">
+            <li><a href="#">Access Free LMS</a></li>
+            <li><a href="#">Affiliate Programme</a></li>
+            <li><a href="#">AMii Profile</a></li>
+            <li><a href="#">Create Courses on AMii</a></li>
+            <li><a href="#">Download App & Learn Offline</a></li>
+            <li><a href="#">Integrate AMii's API</a></li>
+            <li><a href="#">Refer a Friend</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 AMii. Empower Yourself. All Rights Reserved.</div>
+        <div style="display:flex; gap:16px;">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">Security</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING CHAT BUTTON -->
+  <div class="floating-chat-btn" title="Chat with support">
+    💬
+  </div>
+
+  <script>
+    // Simple interactivity for pills switching
+    document.querySelectorAll('.pills-group .pill-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.pills-group .pill-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+
+    // Skill pills toggle
+    document.querySelectorAll('.tags-container .skill-pill').forEach(pill => {
+      pill.addEventListener('click', () => {
+        document.querySelectorAll('.tags-container .skill-pill').forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
